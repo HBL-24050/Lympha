@@ -1,0 +1,56 @@
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,127.0.0.0/8]"
+    EXTERNAL_NET: "!$HOME_NET"
+  port-groups:
+    HTTP_PORTS: "8080"
+
+default-log-dir: /var/log/suricata
+default-rule-path: /etc/suricata/rules
+rule-files:
+  - local.rules
+
+af-packet:
+  - interface: wlan0
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+    use-mmap: yes
+    tpacket-v3: yes
+
+app-layer:
+  protocols:
+    http:
+      enabled: yes
+      request-body-limit: 4096
+      response-body-limit: 4096
+
+logging:
+  default-log-level: info
+  outputs:
+    - console:
+        enabled: no
+    - file:
+        enabled: yes
+        filename: suricata.log
+        level: info
+
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types:
+        - alert:
+            payload: yes
+            payload-buffer-size: 4096
+            metadata: yes
+            http-headers: yes
+        - http:
+            extended: yes
+        - stats:
+            enabled: no
+        - flow:
+            enabled: no

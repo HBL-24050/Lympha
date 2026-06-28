@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+security.db
+suricata/logs/eve.json
+.venv/
+venv/
+*.egg-info/

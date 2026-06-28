@@ -1,0 +1,20 @@
+# Lympha local detection rules — sid range 1000000+
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"SQLI - UNION SELECT"; content:"UNION"; nocase; http_uri; content:"SELECT"; nocase; http_uri; classtype:attempted-admin; sid:1000001; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"SQLI - OR boolean"; pcre:"/'\s*OR\s+'/i"; classtype:attempted-admin; sid:1000002; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"SQLI - comment --"; content:"--"; http_uri; classtype:attempted-admin; sid:1000003; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"SQLI - DROP/ALTER/INSERT"; pcre:"/(DROP|ALTER|INSERT|DELETE)\s+(TABLE|FROM|INTO)/i"; classtype:attempted-admin; sid:1000004; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - etc/passwd access"; content:"/etc/passwd"; nocase; classtype:attempted-admin; sid:1000012; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"PATH-TRAV - ../"; content:"../"; http_raw_uri; classtype:attempted-recon; sid:1000020; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - script tag"; content:"<script"; nocase; http_uri; classtype:web-application-attack; sid:1000030; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)
+
+alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"RECON - curl UA"; content:"User-Agent|3a| curl"; nocase; http_header; classtype:attempted-recon; sid:1000040; rev:2;)
+

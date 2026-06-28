@@ -1,0 +1,755 @@
+[1 - Suricata-Main] 2026-06-28 14:50:36 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:50:36 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:50:36 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 5
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 11
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 22
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 28
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 34
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 39
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 45
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 51
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 56
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:36 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 62
+[1 - Suricata-Main] 2026-06-28 14:50:36 Warning: detect: 1 rule files specified, but no rules were loaded!
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: detect: 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:50:36 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 14:50:36 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:50:36 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:50:38 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:50:39 Info: suricata: time elapsed 3.108s
+[1 - Suricata-Main] 2026-06-28 14:50:40 Notice: device: wlan0: packets: 195, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:50:43 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:50:43 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:50:43 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 5
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 11
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 22
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 28
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 34
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 39
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 45
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 51
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 56
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect-parse: Signature missing required value "sid".
+[1 - Suricata-Main] 2026-06-28 14:50:43 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 62
+[1 - Suricata-Main] 2026-06-28 14:50:43 Warning: detect: 1 rule files specified, but no rules were loaded!
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: detect: 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:50:43 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 14:50:44 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:50:44 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[32 - Suricata-Main] 2026-06-28 14:51:10 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[32 - Suricata-Main] 2026-06-28 14:51:10 Info: cpu: CPUs/cores online: 12
+[32 - Suricata-Main] 2026-06-28 14:51:10 Info: suricata: Running suricata under test mode
+[32 - Suricata-Main] 2026-06-28 14:51:10 Info: suricata: Setting engine mode to IDS mode by default
+[32 - Suricata-Main] 2026-06-28 14:51:10 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[32 - Suricata-Main] 2026-06-28 14:51:10 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[32 - Suricata-Main] 2026-06-28 14:51:10 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[32 - Suricata-Main] 2026-06-28 14:51:10 Warning: counters: stats are enabled but no loggers are active
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 5
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 11
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 17
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 22
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 28
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 34
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 39
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 45
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 51
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 56
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect-parse: Signature missing required value "sid".
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (" from file /etc/suricata/rules/local.rules at line 62
+[32 - Suricata-Main] 2026-06-28 14:51:10 Warning: detect: 1 rule files specified, but no rules were loaded!
+[32 - Suricata-Main] 2026-06-28 14:51:10 Error: suricata: Loading signatures failed.
+[1 - Suricata-Main] 2026-06-28 14:52:03 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:52:04 Info: suricata: time elapsed 80.239s
+[1 - Suricata-Main] 2026-06-28 14:52:05 Notice: device: wlan0: packets: 7891, drops: 8 (0.10%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:52:08 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:52:08 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:52:08 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:52:08 Error: detect-content: Invalid unescaped double quote within content section.
+[1 - Suricata-Main] 2026-06-28 14:52:08 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; content:"cmd="; http_client_body; content:";"; distance:0; http_client_body; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[1 - Suricata-Main] 2026-06-28 14:52:08 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/(\||'
+[1 - Suricata-Main] 2026-06-28 14:52:08 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(\||;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:52:08 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 14:52:08 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:52:08 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:52:29 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:52:30 Info: suricata: time elapsed 21.889s
+[1 - Suricata-Main] 2026-06-28 14:52:31 Notice: device: wlan0: packets: 2201, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:52:34 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:52:34 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:52:34 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:52:34 Error: detect-content: Invalid unescaped double quote within content section.
+[1 - Suricata-Main] 2026-06-28 14:52:34 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; content:"cmd="; http_client_body; content:";"; http_client_body; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[1 - Suricata-Main] 2026-06-28 14:52:34 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/(\||'
+[1 - Suricata-Main] 2026-06-28 14:52:34 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(\||;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:52:34 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 14:52:34 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:52:34 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:53:00 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:53:00 Info: suricata: time elapsed 25.873s
+[1 - Suricata-Main] 2026-06-28 14:53:01 Notice: device: wlan0: packets: 2918, drops: 1 (0.03%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:53:04 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:53:04 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:53:04 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:53:04 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/cmd=\s*'
+[1 - Suricata-Main] 2026-06-28 14:53:04 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; pcre:"/cmd=\s*;/Ri"; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[1 - Suricata-Main] 2026-06-28 14:53:04 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/('
+[1 - Suricata-Main] 2026-06-28 14:53:04 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:53:04 Info: runmodes: wlan0: creating 12 threads
+[13 - W#01-wlan0] 2026-06-28 14:53:04 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:53:05 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[27 - Suricata-Main] 2026-06-28 14:53:14 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: cpu: CPUs/cores online: 12
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: suricata: Running suricata under test mode
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: suricata: Setting engine mode to IDS mode by default
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[27 - Suricata-Main] 2026-06-28 14:53:14 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[27 - Suricata-Main] 2026-06-28 14:53:14 Warning: counters: stats are enabled but no loggers are active
+[27 - Suricata-Main] 2026-06-28 14:53:14 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/cmd=\s*'
+[27 - Suricata-Main] 2026-06-28 14:53:14 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; pcre:"/cmd=\s*;/Ri"; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[27 - Suricata-Main] 2026-06-28 14:53:14 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/('
+[27 - Suricata-Main] 2026-06-28 14:53:14 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[27 - Suricata-Main] 2026-06-28 14:53:14 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[27 - Suricata-Main] 2026-06-28 14:53:14 Error: suricata: Loading signatures failed.
+[33 - Suricata-Main] 2026-06-28 14:53:18 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: cpu: CPUs/cores online: 12
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: suricata: Running suricata under test mode
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: suricata: Setting engine mode to IDS mode by default
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[33 - Suricata-Main] 2026-06-28 14:53:18 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[33 - Suricata-Main] 2026-06-28 14:53:18 Warning: counters: stats are enabled but no loggers are active
+[33 - Suricata-Main] 2026-06-28 14:53:18 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/cmd=\s*'
+[33 - Suricata-Main] 2026-06-28 14:53:18 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; pcre:"/cmd=\s*;/Ri"; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[33 - Suricata-Main] 2026-06-28 14:53:18 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/('
+[33 - Suricata-Main] 2026-06-28 14:53:18 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[33 - Suricata-Main] 2026-06-28 14:53:18 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[33 - Suricata-Main] 2026-06-28 14:53:18 Error: suricata: Loading signatures failed.
+[39 - Suricata-Main] 2026-06-28 14:53:23 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: cpu: CPUs/cores online: 12
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: suricata: Running suricata under test mode
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: suricata: Setting engine mode to IDS mode by default
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[39 - Suricata-Main] 2026-06-28 14:53:23 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[39 - Suricata-Main] 2026-06-28 14:53:23 Warning: counters: stats are enabled but no loggers are active
+[39 - Suricata-Main] 2026-06-28 14:53:23 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/cmd=\s*'
+[39 - Suricata-Main] 2026-06-28 14:53:23 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; pcre:"/cmd=\s*;/Ri"; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[39 - Suricata-Main] 2026-06-28 14:53:23 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/('
+[39 - Suricata-Main] 2026-06-28 14:53:23 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[39 - Suricata-Main] 2026-06-28 14:53:23 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[39 - Suricata-Main] 2026-06-28 14:53:23 Error: suricata: Loading signatures failed.
+[51 - Suricata-Main] 2026-06-28 14:53:27 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: cpu: CPUs/cores online: 12
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: suricata: Running suricata under test mode
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: suricata: Setting engine mode to IDS mode by default
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[51 - Suricata-Main] 2026-06-28 14:53:27 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[51 - Suricata-Main] 2026-06-28 14:53:27 Warning: counters: stats are enabled but no loggers are active
+[51 - Suricata-Main] 2026-06-28 14:53:27 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/cmd=\s*'
+[51 - Suricata-Main] 2026-06-28 14:53:27 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - shell metacharacters"; pcre:"/cmd=\s*;/Ri"; classtype:attempted-admin; sid:1000010; rev:1;)" from file /etc/suricata/rules/local.rules at line 11
+[51 - Suricata-Main] 2026-06-28 14:53:27 Error: detect-parse: bad option value formatting (possible missing semicolon) for keyword pcre: '"/('
+[51 - Suricata-Main] 2026-06-28 14:53:27 Error: detect: error parsing signature "alert tcp $EXTERNAL_NET any -> $HOME_NET $HTTP_PORTS (msg:"CMDINJ - pipe or redirect"; pcre:"/(;&|&&|`|\$\().*/i"; classtype:attempted-admin; sid:1000011; rev:1;)" from file /etc/suricata/rules/local.rules at line 13
+[51 - Suricata-Main] 2026-06-28 14:53:27 Info: detect: 1 rule files processed. 9 rules successfully loaded, 2 rules failed, 0 rules skipped
+[51 - Suricata-Main] 2026-06-28 14:53:27 Error: suricata: Loading signatures failed.
+[1 - Suricata-Main] 2026-06-28 14:54:19 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:54:19 Info: suricata: time elapsed 75.290s
+[1 - Suricata-Main] 2026-06-28 14:54:21 Notice: device: wlan0: packets: 9071, drops: 1 (0.01%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:54:24 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:54:24 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:54:24 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:54:24 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 14:54:24 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 14:54:24 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:55:51 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:55:52 Info: suricata: time elapsed 88.164s
+[1 - Suricata-Main] 2026-06-28 14:55:53 Notice: device: wlan0: packets: 7946, drops: 5 (0.06%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:55:57 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:55:57 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:55:57 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:55:57 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:55:57 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:55:57 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:57 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:57 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:55:57 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:55:58 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:55:58 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:55:58 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:55:58 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:55:58 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:58 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:58 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:55:58 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:55:58 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:55:58 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:55:59 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:55:59 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:55:59 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:55:59 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:55:59 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:59 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:55:59 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:55:59 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:00 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:00 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:00 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:00 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:56:00 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:00 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:00 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:00 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:00 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:01 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:01 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:01 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:01 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:56:01 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:01 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:02 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:02 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:02 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:03 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:03 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:03 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:03 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:04 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:04 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:04 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:56:04 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:04 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:04 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:04 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:04 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:08 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:08 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:08 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:08 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:56:08 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:08 Info: runmodes: lo: creating 12 threads
+[13 - W#01-__IN..CE__] 2026-06-28 14:56:08 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[13 - W#01-__IN..CE__] 2026-06-28 14:56:08 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:08 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:15 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:15 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:15 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:15 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: runmodes: __INTERFACE__: creating 12 threads
+[1 - Suricata-Main] 2026-06-28 14:56:15 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:15 Info: runmodes: lo: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:15 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:15 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:15 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:28 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:28 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:28 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:28 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:29 Error: af-packet: __INTERFACE__: failed to find interface type: No such device
+[1 - Suricata-Main] 2026-06-28 14:56:29 Info: runmodes: __INTERFACE__: creating 12 threads
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:29 Error: af-packet: __INTERFACE__: failed to find interface: No such device
+[12 - W#01-__IN..CE__] 2026-06-28 14:56:29 Error: af-packet: __INTERFACE__: failed to init socket for interface
+[1 - Suricata-Main] 2026-06-28 14:56:29 Error: threads: thread "W#01-__IN..CE__" failed to start: flags 0422
+[1 - Suricata-Main] 2026-06-28 14:56:40 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:56:40 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:56:40 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:56:40 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:56:40 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 14:56:40 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 14:56:40 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:57:43 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:57:43 Info: suricata: time elapsed 63.390s
+[1 - Suricata-Main] 2026-06-28 14:57:44 Notice: device: lo: packets: 604, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:57:44 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:57:47 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:57:47 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:57:47 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:57:47 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:57:47 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 14:57:47 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 14:57:47 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:58:27 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:58:28 Info: suricata: time elapsed 40.652s
+[1 - Suricata-Main] 2026-06-28 14:58:28 Notice: device: lo: packets: 1226, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:58:28 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:58:31 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:58:31 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:58:31 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:58:31 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:58:31 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 14:58:31 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 14:58:31 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 14:58:42 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 14:58:43 Info: suricata: time elapsed 12.002s
+[1 - Suricata-Main] 2026-06-28 14:58:43 Notice: device: lo: packets: 0, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 14:58:43 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:58:46 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 14:58:46 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 14:58:46 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 14:58:46 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 14:58:46 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 14:58:46 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 14:58:46 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 15:00:49 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 15:00:50 Info: suricata: time elapsed 123.642s
+[1 - Suricata-Main] 2026-06-28 15:00:51 Notice: device: lo: packets: 638, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 15:00:51 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:00:54 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 15:00:54 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 15:00:54 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: detect: 1 rule files processed. 10 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: detect: 10 signatures processed. 1 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 15:00:54 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:00:54 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 15:00:54 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 15:00:54 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 15:01:24 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 15:01:25 Info: suricata: time elapsed 30.788s
+[1 - Suricata-Main] 2026-06-28 15:01:25 Notice: device: lo: packets: 24, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 15:01:25 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:01:28 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 15:01:28 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 15:01:28 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: detect: 1 rule files processed. 10 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: detect: 10 signatures processed. 1 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 15:01:28 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:01:28 Info: runmodes: lo: creating 12 threads
+[13 - W#01-lo] 2026-06-28 15:01:28 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 15:01:29 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 15:01:53 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 15:01:53 Info: suricata: time elapsed 24.872s
+[1 - Suricata-Main] 2026-06-28 15:01:53 Notice: device: lo: packets: 608, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 15:01:53 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:01:56 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 15:01:56 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 15:01:56 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 15:01:56 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:01:56 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 15:01:57 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 15:01:57 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 15:39:36 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 15:39:36 Info: suricata: time elapsed 2260.012s
+[1 - Suricata-Main] 2026-06-28 15:39:37 Notice: device: lo: packets: 3088, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 15:39:37 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 15:39:45 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:45 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:45 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:45 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:45 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:45 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:45 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:46 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:46 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:46 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:46 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:47 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:47 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:47 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:47 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:47 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:47 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:47 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:48 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:48 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:48 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:49 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:49 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:49 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:49 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:50 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:50 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:50 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:51 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:51 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:51 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:51 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:52 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:52 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:52 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:54 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:54 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:54 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:54 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:54 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:54 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:54 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:39:58 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:39:58 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:39:58 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:39:58 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:39:59 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:39:59 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:39:59 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:40:06 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:40:06 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:40:06 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:40:06 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:40:06 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:40:06 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:40:06 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:40:20 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:40:20 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:40:20 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:40:20 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:40:20 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:40:20 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:40:20 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:40:46 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:40:46 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:40:46 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:40:46 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:40:47 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:40:47 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:40:47 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:41:39 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:41:39 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:41:39 Info: device: __INTERFACE__: shortening device name to __IN..CE__
+[1 - Suricata-Main] 2026-06-28 15:41:39 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:41:39 Error: detect:  failed to parse port "__HTTP_PORTS__"
+[1 - Suricata-Main] 2026-06-28 15:41:39 Error: detect: failed to parse port var "HTTP_PORTS" with value "__HTTP_PORTS__". Please check its syntax
+[1 - Suricata-Main] 2026-06-28 15:41:39 Error: suricata: basic port vars test failed. Please check /etc/suricata/suricata.yaml for errors
+[1 - Suricata-Main] 2026-06-28 15:42:40 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 15:42:40 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 15:42:40 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 15:42:41 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 15:42:41 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 15:42:41 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 15:42:41 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 15:42:41 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 16:59:08 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 16:59:08 Info: suricata: time elapsed 4586.969s
+[1 - Suricata-Main] 2026-06-28 16:59:09 Notice: device: wlan0: packets: 48744, drops: 17 (0.03%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 16:59:30 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 16:59:30 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 16:59:30 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: detect: 1 rule files processed. 9 rules successfully loaded, 0 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: detect: 9 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 6 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 16:59:30 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 16:59:30 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 16:59:30 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[18 - W#07-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[14 - W#03-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[13 - W#02-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[16 - W#05-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[15 - W#04-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[17 - W#06-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[20 - W#09-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[23 - W#12-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[19 - W#08-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[12 - W#01-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[22 - W#11-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[21 - W#10-wlan0] 2026-06-28 17:04:15 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[13 - W#02-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[12 - W#01-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[21 - W#10-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[18 - W#07-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[15 - W#04-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[14 - W#03-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[17 - W#06-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[19 - W#08-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[23 - W#12-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[20 - W#09-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[16 - W#05-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[22 - W#11-wlan0] 2026-06-28 17:04:16 Info: af-packet: wlan0: interface is back up
+[18 - W#07-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[12 - W#01-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[22 - W#11-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[15 - W#04-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[19 - W#08-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[16 - W#05-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[21 - W#10-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[17 - W#06-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[23 - W#12-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[14 - W#03-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[13 - W#02-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[20 - W#09-wlan0] 2026-06-28 17:11:01 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[18 - W#07-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[22 - W#11-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[16 - W#05-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[23 - W#12-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[13 - W#02-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[17 - W#06-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[21 - W#10-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[15 - W#04-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[12 - W#01-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[20 - W#09-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[19 - W#08-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[14 - W#03-wlan0] 2026-06-28 17:11:02 Info: af-packet: wlan0: interface is back up
+[17 - W#06-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[20 - W#09-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[15 - W#04-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[21 - W#10-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[12 - W#01-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[14 - W#03-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[23 - W#12-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[22 - W#11-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[13 - W#02-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[18 - W#07-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[19 - W#08-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[16 - W#05-wlan0] 2026-06-28 17:11:05 Warning: af-packet: wlan0: failed to poll interface: Network is down
+[19 - W#08-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[17 - W#06-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[14 - W#03-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[22 - W#11-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[20 - W#09-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[15 - W#04-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[12 - W#01-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[21 - W#10-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[13 - W#02-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[23 - W#12-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[16 - W#05-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[18 - W#07-wlan0] 2026-06-28 17:11:06 Info: af-packet: wlan0: interface is back up
+[1 - Suricata-Main] 2026-06-28 18:08:07 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 18:08:08 Info: suricata: time elapsed 4117.605s
+[1 - Suricata-Main] 2026-06-28 18:08:09 Notice: device: wlan0: packets: 48965, drops: 36284 (74.10%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 18:08:12 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 18:08:12 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 18:08:12 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 18:08:12 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 18:08:12 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 18:08:12 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 18:08:12 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 18:08:12 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 18:15:52 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 18:15:52 Info: suricata: time elapsed 460.787s
+[1 - Suricata-Main] 2026-06-28 18:15:54 Notice: device: wlan0: packets: 3418, drops: 3 (0.09%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 18:15:56 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 18:15:56 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 18:15:56 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 18:15:56 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 18:15:56 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 18:15:56 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 18:15:56 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 18:15:57 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 18:34:01 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 18:34:01 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 18:34:01 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 18:34:01 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 18:34:01 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 18:34:01 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 18:34:01 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 18:34:01 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
