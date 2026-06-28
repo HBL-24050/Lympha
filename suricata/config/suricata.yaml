@@ -13,7 +13,7 @@ rule-files:
   - local.rules
 
 af-packet:
-  - interface: wlan0
+  - interface: lo
     cluster-id: 99
     cluster-type: cluster_flow
     defrag: yes

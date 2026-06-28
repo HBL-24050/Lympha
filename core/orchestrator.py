@@ -192,9 +192,30 @@ class Orchestrator:
             template.replace("__INTERFACE__", self.interface)
             .replace("__HTTP_PORTS__", HTTP_PORTS)
         )
-        config_path.write_text(updated)
-        print(f"  suricata config: interface={self.interface} ports={HTTP_PORTS}")
-        print(f"  => run: docker compose up -d --force-recreate suricata")
+        if config_path.exists() and config_path.read_text() == updated:
+            print(f"  suricata config OK: interface={self.interface} ports={HTTP_PORTS}")
+        else:
+            config_path.write_text(updated)
+            print(f"  suricata config updated: interface={self.interface} ports={HTTP_PORTS}")
+
+        self._restart_suricata()
+
+    def _restart_suricata(self):
+        import subprocess
+
+        try:
+            r = subprocess.run(
+                ["docker", "compose", "up", "-d", "--force-recreate", "suricata"],
+                capture_output=True, text=True, timeout=30,
+            )
+            if r.returncode == 0:
+                print("  suricata container ready")
+            else:
+                print(f"  suricata error: {r.stderr.strip()}")
+        except FileNotFoundError:
+            print("  Docker not found — cannot restart Suricata")
+        except subprocess.TimeoutExpired:
+            print("  docker compose timed out")
 
     def _check_suricata(self):
         import subprocess
