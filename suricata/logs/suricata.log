@@ -807,3 +807,99 @@
 [1 - Suricata-Main] 2026-06-28 19:12:51 Info: runmodes: lo: creating 12 threads
 [12 - W#01-lo] 2026-06-28 19:12:51 Info: ioctl: lo: MTU 65536
 [1 - Suricata-Main] 2026-06-28 19:12:51 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 19:21:47 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 19:21:47 Info: suricata: time elapsed 536.095s
+[1 - Suricata-Main] 2026-06-28 19:21:48 Notice: device: lo: packets: 3972, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 19:21:48 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 19:21:48 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 19:21:48 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 19:21:48 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 19:21:48 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 19:21:48 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 19:21:48 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 19:21:48 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 19:21:49 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 19:21:49 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 19:23:25 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 19:23:25 Info: suricata: time elapsed 97.059s
+[1 - Suricata-Main] 2026-06-28 19:23:26 Notice: device: lo: packets: 0, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 19:23:26 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 19:23:26 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 19:23:26 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 19:23:26 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 19:23:26 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 19:23:26 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 19:23:26 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 19:23:26 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 19:23:27 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 19:33:53 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 19:33:53 Info: suricata: time elapsed 626.408s
+[1 - Suricata-Main] 2026-06-28 19:33:54 Notice: device: wlan0: packets: 103627, drops: 234 (0.23%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 19:33:55 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 19:33:55 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 19:33:55 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 19:33:55 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 19:33:55 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 19:33:55 Info: runmodes: wlan0: creating 12 threads
+[12 - W#01-wlan0] 2026-06-28 19:33:55 Info: ioctl: wlan0: MTU 1500
+[1 - Suricata-Main] 2026-06-28 19:33:55 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 19:35:42 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 19:35:42 Info: suricata: time elapsed 107.693s
+[1 - Suricata-Main] 2026-06-28 19:35:43 Notice: device: wlan0: packets: 24430, drops: 351 (1.44%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 19:35:44 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 19:35:44 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 19:35:44 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 19:35:44 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 19:35:44 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 19:35:44 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 19:35:44 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 19:35:44 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 19:35:45 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
+[1 - Suricata-Main] 2026-06-28 20:32:48 Notice: suricata: Signal Received.  Stopping engine.
+[1 - Suricata-Main] 2026-06-28 20:32:48 Info: suricata: time elapsed 3423.501s
+[1 - Suricata-Main] 2026-06-28 20:32:48 Notice: device: lo: packets: 480, drops: 0 (0.00%), invalid chksum: 0
+[1 - Suricata-Main] 2026-06-28 20:32:48 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 20:33:11 Notice: suricata: This is Suricata version 8.0.4 RELEASE running in SYSTEM mode
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: cpu: CPUs/cores online: 12
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: suricata: Setting engine mode to IDS mode by default
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: suricata: No 'host-mode': suricata is in IDS mode, using default setting 'sniffer-only'
+[1 - Suricata-Main] 2026-06-28 20:33:11 Notice: stream-tcp: stream.reassembly.depth set to unlimited by default
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[1 - Suricata-Main] 2026-06-28 20:33:11 Warning: counters: stats are enabled but no loggers are active
+[1 - Suricata-Main] 2026-06-28 20:33:11 Error: detect-parse: "http_client_body" keyword found inside the rule without a content context.  Please use a "content" keyword before using the "http_client_body" keyword
+[1 - Suricata-Main] 2026-06-28 20:33:11 Error: detect: error parsing signature "alert tcp any any -> $HOME_NET $HTTP_PORTS (msg:"XSS - onerror handler"; pcre:"/on(error|load|click|mouseover)\s*=/i"; http_client_body; classtype:web-application-attack; sid:1000031; rev:2;)" from file /etc/suricata/rules/local.rules at line 17
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: detect: 1 rule files processed. 8 rules successfully loaded, 1 rules failed, 0 rules skipped
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: detect: 8 signatures processed. 0 are IP-only rules, 3 are inspecting packet payload, 5 inspect application layer, 0 are decoder event only
+[1 - Suricata-Main] 2026-06-28 20:33:11 Warning: ioctl: lo: failed to set SIOCETHTOOL ioctl: Operation not supported
+[1 - Suricata-Main] 2026-06-28 20:33:11 Info: runmodes: lo: creating 12 threads
+[12 - W#01-lo] 2026-06-28 20:33:11 Info: ioctl: lo: MTU 65536
+[1 - Suricata-Main] 2026-06-28 20:33:12 Notice: threads: Threads created -> W: 12 FM: 1 FR: 1   Engine started.
