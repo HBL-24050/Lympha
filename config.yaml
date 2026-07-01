@@ -38,10 +38,10 @@ tier2:
 
 # ── Tier 3: Generative LLM Reasoner ─────────────────────────────
 tier3:
-  enabled: false                                  # enable once an OpenAI-compatible endpoint is available
-  api_base: "http://localhost:8000/v1"
+  enabled: true
+  api_base: "https://api.groq.com/openai/v1"
   api_key: ""
-  model: "gpt-4o-mini"
+  model: "llama-3.3-70b-versatile"
   max_tokens: 2048
   trigger_threshold: 10                           # min accumulated weight to wake Tier 3
   system_prompt: "You are a security analyst reviewing HTTP traffic warnings. Given a list of alerts with warning weights and tactic descriptions, determine if this traffic represents a coordinated attack. Respond with exactly one word: BLOCK if the evidence strongly indicates an attack, WARN if suspicious but inconclusive, or PASS if likely benign."

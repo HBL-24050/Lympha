@@ -124,7 +124,47 @@ python test/run_test.py -c config.yaml
 python test/send_normal.py
 ```
 
-## Test Results (Tier 2 — Prompt Guardrail)
+### Per-tier tests
+
+Each tier has a dedicated test script. Tier 1 and Tier 2 first run a smoke test against known payloads, then optionally benchmark against CSIC 2010:
+
+```bash
+# Tier 1 — XGBoost anomaly detector (smoke test only)
+PYTHONPATH=. python test/test_tier1.py
+
+# Tier 1 — with CSIC 2010 benchmark
+PYTHONPATH=. python test/test_tier1.py --limit 1000
+
+# Tier 2 — Prompt injection guardrail (smoke test only)
+PYTHONPATH=. python test/test_tier2.py
+
+# Tier 2 — with CSIC 2010 benchmark
+PYTHONPATH=. python test/test_tier2.py --limit 500
+
+# Tier 3 — LLM reasoner (requires Groq API key in config.yaml)
+PYTHONPATH=. python test/test_tier3.py
+```
+
+## Benchmark
+
+Run a long test against the CSIC 2010 dataset:
+
+```bash
+PYTHONPATH=. python test/benchmark.py -n 500 -o benchmark_report.json
+```
+
+### Sample Results (500 requests, CSIC 2010)
+
+The guardrail is trained for prompt injection, not general HTTP attacks (SQLi, XSS, path traversal), so it correctly passes most CSIC anomalies:
+
+| Threshold | Precision | Recall | F1 | Benign FP |
+|-----------|-----------|--------|----|-----------|
+| instant_drop (≥0.85) | 0.76 | 0.20 | 0.32 | 6% |
+| warning (≥0.40) | 0.75 | 0.47 | 0.57 | 16% |
+
+Latency (CPU): p50=691ms, p95=1277ms, mean=770ms
+
+### Manual Test Results (Tier 2 — Prompt Guardrail)
 
 | Input | Score | Classification |
 |-------|-------|---------------|

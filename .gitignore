@@ -5,6 +5,6 @@ suricata/logs/eve.json
 .venv/
 venv/
 *.egg-info/
-models/*
+models/tier2/*
 data/
 suricata/
