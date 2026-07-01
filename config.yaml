@@ -13,8 +13,8 @@ tier1:
   xgboost:
     model_path: "models/tier1/xgboost_model.json"   # XGBoost Booster serialized
     feature_dim: 48                                  # number of handcrafted tabular features
-    threshold_instant_drop: 0.999                    # disabled — let everything through to test CodeBERT
-    threshold_warning: 0.0                           # every request → WARNING → Tier 2
+    threshold_instant_drop: 0.92                     # high confidence → instant block
+    threshold_warning: 0.70                          # moderate → route to Guardrail
   mamba:
     model_path: "models/tier1/mamba_state_dict.pt"   # Mamba SSM checkpoint
     sequence_length: 512
@@ -22,32 +22,29 @@ tier1:
     threshold_warning: 0.65
   cooldown_seconds: 300          # how long until an iptables block rule is removed
 
-# ── Tier 2: Deep Context Parser ──────────────────────────────────
+# ── Tier 2: Prompt Injection Guardrail ──────────────────────────
 tier2:
   enabled: true
-  codebert:
-    model_name: "microsoft/codebert-base"             # HuggingFace model ID
-    cache_dir: "models/tier2"                         # local download path
-    device: "auto"                                     # "auto" → cuda if available else cpu
-    max_length: 256
-    threshold_instant_drop: 0.998                      # CodeBERT is untrained on attacks; only escalate at extreme confidence
-    threshold_warning: 0.90                            # below this → ignore, above → populate state cache
+  guardrail:
+    threshold_instant_drop: 0.85                  # prompt injection score → instant iptables block
+    threshold_warning: 0.40                       # below this → ignore, above → populate state cache
 
   state_cache:
-    backend: "redis"                             # "redis" or "memory"
+    backend: "memory"                             # "redis" or "memory"
     redis_url: "redis://localhost:6379/0"
-    accumulation_threshold: 10                   # sum of Warning_Weight across time window → trigger Tier 3
-    window_seconds: 3600                         # sliding time window in seconds
-    decay_half_life: 600                         # exponential half-life for weight decay
+    accumulation_threshold: 10                    # sum of Warning_Weight across time window → trigger Tier 3
+    window_seconds: 3600                          # sliding time window in seconds
+    decay_half_life: 600                          # exponential half-life for weight decay
 
-# ── Tier 3: Generative Orchestrator (external LLM) ──────────────
+# ── Tier 3: Generative LLM Reasoner ─────────────────────────────
 tier3:
-  enabled: false              # external LLM — disabled for local-only mode
+  enabled: false                                  # enable once an OpenAI-compatible endpoint is available
   api_base: "http://localhost:8000/v1"
   api_key: ""
-  model: "Foundation-Sec-8B-Reasoning"
+  model: "gpt-4o-mini"
   max_tokens: 2048
-  trigger_threshold: 10       # min accumulated weight to wake Tier 3
+  trigger_threshold: 10                           # min accumulated weight to wake Tier 3
+  system_prompt: "You are a security analyst reviewing HTTP traffic warnings. Given a list of alerts with warning weights and tactic descriptions, determine if this traffic represents a coordinated attack. Respond with exactly one word: BLOCK if the evidence strongly indicates an attack, WARN if suspicious but inconclusive, or PASS if likely benign."
 
 # ── Logging ──────────────────────────────────────────────────────
 logging:

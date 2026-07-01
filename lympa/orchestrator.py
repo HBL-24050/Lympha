@@ -11,13 +11,14 @@ from lympa.iptables import IptablesManager
 from lympa.tier1.engine import Tier1Engine, Tier1Result, Verdict
 from lympa.tier1.xgboost_model import XGBoostAnomalyDetector
 from lympa.tier1.mamba_stream import MambaLogStream
-from lympa.tier2.codebert import CodeBERTAnomalyParser
+from lympa.tier2.guardrail import PromptGuardrail
 from lympa.tier2.state_cache import (
     WarningRecord,
     create_state_cache,
     MemoryStateCache,
     RedisStateCache,
 )
+from lympa.tier3 import LLMReasoner
 
 log = logging.getLogger(__name__)
 
@@ -44,13 +45,10 @@ class LymphaPipeline:
         )
 
         c2 = config.tier2
-        self.codebert = CodeBERTAnomalyParser(
-            model_name=c2.codebert.model_name,
-            cache_dir=c2.codebert.cache_dir,
-            device=c2.codebert.device,
-            max_length=c2.codebert.max_length,
-            instant_drop_threshold=c2.codebert.threshold_instant_drop,
-            warning_threshold=c2.codebert.threshold_warning,
+        self.guardrail = PromptGuardrail(
+            instant_drop_threshold=c2.guardrail.threshold_instant_drop,
+            warning_threshold=c2.guardrail.threshold_warning,
+            model_id=c2.guardrail.model_id,
         )
 
         self.state_cache = create_state_cache(c2.state_cache)
@@ -62,6 +60,15 @@ class LymphaPipeline:
 
         self._cooldown_seconds = c1.cooldown_seconds
         self._blocked_ips: dict[str, asyncio.Task] = {}
+
+        c3 = config.tier3
+        self.tier3 = LLMReasoner(
+            api_base=c3.api_base,
+            api_key=c3.api_key,
+            model=c3.model,
+            max_tokens=c3.max_tokens,
+            system_prompt=c3.system_prompt,
+        )
 
     async def start(self) -> None:
         self._running = True
@@ -76,13 +83,17 @@ class LymphaPipeline:
             await self.tier1.load_models()
 
         if self.config.tier2.enabled:
-            await self.codebert.load()
+            await self.guardrail.load()
 
         if isinstance(self.state_cache, RedisStateCache):
             await self.state_cache.connect()
 
+        if self.config.tier3.enabled:
+            await self.tier3.start()
+
     async def stop(self) -> None:
         self._running = False
+        await self.tier3.stop()
         log.info("Lympha pipeline stopped")
 
     async def ingest_features(
@@ -125,6 +136,39 @@ class LymphaPipeline:
         if blocked:
             self._schedule_unblock(ip)
 
+    async def _check_tier3(self) -> None:
+        if not self.config.tier3.enabled:
+            return
+        total = (
+            self.state_cache.total_weight()
+            if isinstance(self.state_cache, MemoryStateCache)
+            else await self.state_cache.total_weight()
+        )
+        if total >= self.config.tier3.trigger_threshold:
+            log.info("Tier 3 triggered (total=%.3f >= %.3f)", total, self.config.tier3.trigger_threshold)
+            alerts = []
+            if isinstance(self.state_cache, MemoryStateCache):
+                for r in self.state_cache._records:
+                    alerts.append({
+                        "source_ip": r.source_ip,
+                        "weight": r.warning_weight,
+                        "tactic": r.tactic_vector,
+                    })
+            context = {
+                "alerts": alerts,
+                "total_weight": total,
+                "threshold": self.config.tier3.trigger_threshold,
+            }
+            decision, raw = await self.tier3.analyze(context)
+            if decision == "BLOCK":
+                # block all source IPs in the alerts
+                for a in alerts:
+                    reason = f"Tier3/LLM decision=BLOCK weight={a['weight']:.3f} tactic={a['tactic']}"
+                    blocked = await self.iptables.block_ip(a["source_ip"], reason=reason)
+                    if blocked:
+                        self._schedule_unblock(a["source_ip"])
+            self.state_cache.reset()
+
     async def _handle_warning(self, result: Tier1Result) -> None:
         if not self.config.tier2.enabled:
             return
@@ -133,12 +177,12 @@ class LymphaPipeline:
         if result.features is not None:
             raw_text = f"feature_vector: {result.features.tolist()}"
 
-        score, meta = self.codebert.analyze(raw_text)
-        classification = self.codebert.classify(score)
+        score, meta = self.guardrail.analyze(raw_text)
+        classification = self.guardrail.classify(score)
 
         if classification == "instant_drop":
             reason = (
-                f"Tier2/CodeBERT score={score:.4f} "
+                f"Tier2/Guardrail score={score:.4f} "
                 f"(escalated from Tier1/{result.source})"
             )
             blocked = await self.iptables.block_ip(result.source_ip, reason=reason)
@@ -165,6 +209,8 @@ class LymphaPipeline:
                     self.config.tier2.state_cache.accumulation_threshold,
                 )
 
+            await self._check_tier3()
+
     def _schedule_unblock(self, ip: str) -> None:
         if ip in self._blocked_ips:
             self._blocked_ips[ip].cancel()
@@ -185,5 +231,8 @@ class LymphaPipeline:
 
     @staticmethod
     def _derive_tactic(meta: dict) -> str:
-        label = meta.get("method", "unknown")
-        return f"anomaly_{label}"
+        method = meta.get("method", "unknown")
+        prob = meta.get("injection_probability")
+        if prob is not None:
+            return f"{method}/inj={prob}"
+        return f"guardrail_{method}"

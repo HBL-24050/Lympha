@@ -108,13 +108,13 @@ async def run_test() -> None:
         t2_label = ""
         if verdict == "WARNING":
             raw_text = f"{req.get('method','')} {req.get('path','')} {req.get('body','')}"
-            t2_score, t2_meta = pipeline.codebert.analyze(raw_text)
-            t2_label = pipeline.codebert.classify(t2_score)
+            t2_score, t2_meta = pipeline.guardrail.analyze(raw_text)
+            t2_label = pipeline.guardrail.classify(t2_score)
             if t2_label == "instant_drop":
                 verdict = "INSTANT_DROP"
                 await pipeline.iptables.block_ip(
                     record["source_ip"],
-                    reason=f"Tier2/CodeBERT score={t2_score:.4f}",
+                    reason=f"Tier2/Guardrail score={t2_score:.4f}",
                 )
                 t2_label = "caught_by_tier2"
 
@@ -188,7 +188,7 @@ async def run_test() -> None:
 
     print("  Summary:")
     print(f"    Tier 1 (XGBoost) blocked:    {total_blocked}")
-    print(f"    Tier 2 (CodeBERT) blocked: {len(caught_by_t2)}")
+    print(f"    Tier 2 (Guardrail) blocked: {len(caught_by_t2)}")
     print(f"    Still in state cache:        {total_warned}")
     print(f"    Clean passed:                {passed}")
 

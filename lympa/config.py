@@ -28,17 +28,15 @@ class Tier1Config(BaseModel):
     cooldown_seconds: int = 300
 
 
-class CodeBERTConfig(BaseModel):
-    model_name: str = "microsoft/codebert-base"
-    cache_dir: str = "models/tier2"
-    device: Literal["auto", "cuda", "cpu"] = "auto"
-    max_length: int = 256
+class GuardrailConfig(BaseModel):
+    enabled: bool = True
+    model_id: str = "ProtectAI/deberta-v3-base-prompt-injection-v2"
     threshold_instant_drop: float = 0.85
-    threshold_warning: float = 0.50
+    threshold_warning: float = 0.40
 
 
 class StateCacheConfig(BaseModel):
-    backend: Literal["redis", "memory"] = "redis"
+    backend: Literal["redis", "memory"] = "memory"
     redis_url: str = "redis://localhost:6379/0"
     accumulation_threshold: float = 10.0
     window_seconds: int = 3600
@@ -47,7 +45,7 @@ class StateCacheConfig(BaseModel):
 
 class Tier2Config(BaseModel):
     enabled: bool = True
-    codebert: CodeBERTConfig = Field(default_factory=CodeBERTConfig)
+    guardrail: GuardrailConfig = Field(default_factory=GuardrailConfig)
     state_cache: StateCacheConfig = Field(default_factory=StateCacheConfig)
 
 
@@ -55,9 +53,16 @@ class Tier3Config(BaseModel):
     enabled: bool = False
     api_base: str = "http://localhost:8000/v1"
     api_key: str = ""
-    model: str = "Foundation-Sec-8B-Reasoning"
+    model: str = "gpt-4o-mini"
     max_tokens: int = 2048
     trigger_threshold: float = 10.0
+    system_prompt: str = (
+        "You are a security analyst reviewing HTTP traffic warnings. "
+        "Given a list of alerts with warning weights and tactic descriptions, "
+        "determine if this traffic represents a coordinated attack. "
+        "Respond with exactly one word: BLOCK if the evidence strongly indicates an attack, "
+        "WARN if suspicious but inconclusive, or PASS if likely benign."
+    )
 
 
 class LoggingConfig(BaseModel):

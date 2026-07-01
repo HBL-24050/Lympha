@@ -75,7 +75,7 @@ async def _feed_from_log(pipeline: LymphaPipeline, log_path: str) -> None:
                 )
             elif r.verdict.name == "WARNING":
                 log.info(
-                    "[WARN]    %s %s %s | score=%.4f | routing to CodeBERT",
+                    "[WARN]    %s %s %s | score=%.4f | routing to Guardrail",
                     source_ip, method, path, r.score,
                 )
             else:
