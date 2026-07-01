@@ -2257,3 +2257,6 @@
 2026-07-01 02:42:17,605 [INFO] __main__: [WARN]    127.0.0.1 GET / | score=0.6599 | routing to CodeBERT
 2026-07-01 02:42:18,340 [INFO] __main__: [WARN]    127.0.0.1 GET /search | score=0.8735 | routing to CodeBERT
 2026-07-01 02:42:19,013 [INFO] __main__: [WARN]    127.0.0.1 POST /login | score=0.5167 | routing to CodeBERT
+2026-07-01 02:49:59,635 [INFO] lympa.orchestrator: Lympha pipeline stopped
+2026-07-01 02:49:59,691 [DEBUG] httpcore.connection: close.started
+2026-07-01 02:49:59,691 [DEBUG] httpcore.connection: close.complete

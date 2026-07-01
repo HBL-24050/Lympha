@@ -13,8 +13,8 @@ tier1:
   xgboost:
     model_path: "models/tier1/xgboost_model.json"   # XGBoost Booster serialized
     feature_dim: 48                                  # number of handcrafted tabular features
-    threshold_instant_drop: 0.90                     # score ≥ this → instant drop via iptables
-    threshold_warning: 0.50                          # score ≥ this but < instant → route to Tier 2
+    threshold_instant_drop: 0.999                    # disabled — let everything through to test CodeBERT
+    threshold_warning: 0.0                           # every request → WARNING → Tier 2
   mamba:
     model_path: "models/tier1/mamba_state_dict.pt"   # Mamba SSM checkpoint
     sequence_length: 512
