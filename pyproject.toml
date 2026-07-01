@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lympa"
+version = "0.1.0"
+description = "Asymmetrical Multi-Tier Dual-Threshold Security Pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "xgboost>=2.0",
+    "numpy>=1.24",
+    "transformers>=4.38",
+    "torch>=2.2",
+    "redis>=5.0",
+]
+
+[project.optional-dependencies]
+mamba = ["mamba-ssm"]
+capture = ["scapy"]
+dev = ["pytest", "ruff", "mypy"]
+
+[tool.setuptools.packages.find]
+include = ["lympa", "lympa.*"]
+
+[project.scripts]
+lympa = "lympa.__main__:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]

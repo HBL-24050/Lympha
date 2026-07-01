@@ -1,166 +1,226 @@
-"""
-Vulnerable HTTP server for testing Lympha detection.
+from __future__ import annotations
 
-Endpoints:
-  GET  /                                       info page
-  POST /login                                  login (simulates brute-force target)
-  GET  /api/v2/user/profile                    fetch profile
-  POST /api/v2/user/profile                    update profile
-  GET  /search?q=<query>                       search (SQLi simulation)
-  POST /exec                                   command injection
-  POST /upload                                 file upload simulation
-
-Run:  sudo python3 test/vuln_server.py [port]
-"""
-
+import asyncio
 import json
-import os
-import socketserver
-import sys
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+import logging
+from datetime import datetime, timezone
+from typing import Callable
 
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 80
+log = logging.getLogger(__name__)
+
+REQUEST_LOG: list[dict] = []
 
 
-class Handler(BaseHTTPRequestHandler):
+class VulnerableHTTPProtocol(asyncio.Protocol):
+    def __init__(
+        self,
+        on_request: Callable[[dict], None] | None = None,
+        log_file: str | None = None,
+    ) -> None:
+        self.transport: asyncio.Transport | None = None
+        self._buffer = b""
+        self._on_request = on_request
+        self._log_file = log_file
+        self._remote_addr = "0.0.0.0"
 
-    def _json(self, data, status=200):
-        self.send_response(status)
-        self.send_header("Content-Type", "application/json")
-        self.end_headers()
-        self.wfile.write(json.dumps(data).encode())
+    def connection_made(self, transport: asyncio.Transport) -> None:
+        self.transport = transport
+        sock = transport.get_extra_info("peername")
+        self._remote_addr = f"{sock[0]}:{sock[1]}" if sock else "unknown"
 
-    def _html(self, body, status=200):
-        self.send_response(status)
-        self.send_header("Content-Type", "text/html")
-        self.end_headers()
-        self.wfile.write(body.encode())
+    def _write_log(self, record: dict) -> None:
+        if not self._log_file:
+            return
+        import json, os
+        os.makedirs(os.path.dirname(self._log_file) or ".", exist_ok=True)
+        with open(self._log_file, "a") as f:
+            f.write(json.dumps(record) + "\n")
 
-    def _text(self, body, status=200):
-        self.send_response(status)
-        self.send_header("Content-Type", "text/plain")
-        self.end_headers()
-        self.wfile.write(body.encode())
+    def data_received(self, data: bytes) -> None:
+        self._buffer += data
+        if b"\r\n\r\n" in self._buffer:
+            self._handle_request()
 
-    def log_message(self, fmt, *args):
-        print(f"  >>> {args[0]} {args[1]} {args[2]}")
+    def _handle_request(self) -> None:
+        raw = self._buffer.decode("utf-8", errors="replace")
+        head, _, body = raw.partition("\r\n\r\n")
+        lines = head.split("\r\n")
+        if not lines:
+            return
 
-    # -- Routes -----------------------------------------------------------
+        method, path, _ = lines[0].split(" ", 2) if " " in lines[0] else ("GET", "/", "")
+        query = ""
+        if "?" in path:
+            path, query = path.split("?", 1)
 
-    def do_GET(self):
-        parsed = urlparse(self.path)
-        path = parsed.path.rstrip("/")
-        qs = parse_qs(parsed.query)
+        headers: dict[str, str] = {}
+        for line in lines[1:]:
+            if ":" in line:
+                k, v = line.split(":", 1)
+                headers[k.strip().lower()] = v.strip()
 
-        if path == "" or path == "/":
-            return self._index()
+        record = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "source_ip": self._remote_addr.split(":")[0],
+            "method": method,
+            "path": path,
+            "query": query,
+            "body": body.strip(),
+            "headers": headers,
+            "raw": raw[:2048],
+        }
 
-        if path == "/api/v2/user/profile":
-            return self._profile()
+        status, resp_body = self._route(record)
+        resp = (
+            f"HTTP/1.1 {status}\r\n"
+            f"Content-Type: text/plain\r\n"
+            f"Content-Length: {len(resp_body)}\r\n"
+            f"Connection: close\r\n"
+            f"\r\n"
+            f"{resp_body}"
+        )
+        if self.transport:
+            self.transport.write(resp.encode())
+            self.transport.close()
 
+        REQUEST_LOG.append(record)
+        if self._on_request:
+            self._on_request(record)
+        self._write_log(record)
+
+    def _route(self, req: dict) -> tuple[str, str]:
+        path = req["path"]
+        if path == "/":
+            return "200 OK", "Welcome to Lympha test server"
+        if path == "/login":
+            return self._login(req)
         if path == "/search":
-            return self._search(qs)
+            return "200 OK", f"Search results for: {req.get('query', '')}"
+        if path == "/ping":
+            return self._ping(req)
+        if path == "/file":
+            return self._file(req)
+        return "404 Not Found", "Not Found"
 
-        self._json({"error": "not found"}, 404)
-
-    def do_POST(self):
-        length = int(self.headers.get("Content-Length", 0))
-        body = self.rfile.read(length).decode() if length else ""
-
-        if self.path == "/login":
-            return self._login(body)
-        if self.path == "/api/v2/user/profile":
-            return self._profile_update(body)
-        if self.path == "/exec":
-            return self._exec(body)
-        if self.path == "/upload":
-            return self._upload(body)
-
-        self._json({"error": "not found"}, 404)
-
-    # -- Handlers ---------------------------------------------------------
-
-    def _index(self):
-        self._html("""<!DOCTYPE html>
-<html><body>
-<h1>Lympha Test Server</h1>
-<p>Endpoints:</p>
-<ul>
-  <li>POST /login        — login form</li>
-  <li>GET /api/v2/user/profile — user profile</li>
-  <li>POST /api/v2/user/profile — update profile</li>
-  <li>GET /search?q=...  — search (try: ?q=1' OR '1'='1)</li>
-  <li>POST /exec         — ping (try: cmd=; ls -la)</li>
-  <li>POST /upload       — file upload</li>
-</ul>
-</body></html>""")
-
-    def _login(self, body):
-        params = parse_qs(body)
-        user = params.get("user", [""])[0]
-        pwd = params.get("pass", [""])[0]
-        print(f"  [!] LOGIN attempt  user={user!r}  pass={pwd!r}")
-        self._json({"status": "failed", "user": user})
-
-    def _profile(self):
-        auth = self.headers.get("Authorization", "")
-        print(f"  [!] PROFILE fetch   auth={auth[:40]}")
-        self._json({
-            "user": "admin",
-            "email": "admin@lympha.test",
-            "roles": ["admin", "operator"],
-        })
-
-    def _profile_update(self, body):
-        params = parse_qs(body)
-        email = params.get("email", [""])[0]
-        bio = params.get("bio", [""])[0]
-        print(f"  [!] PROFILE update  email={email!r}  bio={bio!r}")
-        self._json({"status": "updated"})
-
-    def _search(self, qs):
-        q = qs.get("q", [""])[0]
-        print(f"  [!] SEARCH          q={q!r}")
-        if q:
-            # Echo back for demo — real app would query a DB
-            results = [
-                {"id": 1, "title": f"Result for {q}", "snippet": q}
-            ]
-            self._json({"results": results})
-        else:
-            self._json({"results": []})
-
-    def _exec(self, body):
-        params = parse_qs(body)
-        cmd = params.get("cmd", ["whoami"])[0]
-        print(f"  [!] EXEC            cmd={cmd!r}")
+    def _login(self, req: dict) -> tuple[str, str]:
+        body = req.get("body", "{}")
         try:
-            import subprocess
-            out = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT,
-                                           timeout=5)
-            self._text(out.decode())
+            data = json.loads(body)
+            user = data.get("user", "")
+            password = data.get("pass", "")
+        except json.JSONDecodeError:
+            user = body
+            password = ""
+        log.info("Login attempt: user=%s pass=%s from %s", user, password, req["source_ip"])
+        if "' OR '1'='1" in user or "' OR '1'='1" in password:
+            return "200 OK", "Logged in as admin (vulnerable)"
+        return "401 Unauthorized", "Invalid credentials"
+
+    def _ping(self, req: dict) -> tuple[str, str]:
+        host = req.get("query", "").replace("host=", "")
+        if not host:
+            return "400 Bad Request", "Missing host"
+        import subprocess
+        try:
+            result = subprocess.run(
+                ["ping", "-c", "1", host],
+                capture_output=True, text=True, timeout=5,
+            )
+            return "200 OK", result.stdout or result.stderr
         except Exception as e:
-            self._text(f"error: {e}")
+            return "500 Error", str(e)
 
-    def _upload(self, body):
-        filename = self.headers.get("X-Filename", "unknown")
-        size = len(body)
-        print(f"  [!] UPLOAD          file={filename!r}  size={size}")
-        self._json({"status": "uploaded", "file": filename, "size": size})
+    def _file(self, req: dict) -> tuple[str, str]:
+        name = req.get("query", "").replace("name=", "")
+        if not name:
+            return "400 Bad Request", "Missing name"
+        import os
+        base = os.path.abspath("/etc")
+        target = os.path.abspath(os.path.join(base, name))
+        if not target.startswith(base):
+            return "200 OK", f"Path traversal detected, but here's the file: {open(target).read()[:512]}"
+        try:
+            content = open(target).read()[:512]
+            return "200 OK", content
+        except Exception as e:
+            return "404 Not Found", str(e)
 
 
-# ---------------------------------------------------------------------------
+class VulnServer:
+    def __init__(
+        self,
+        host: str = "127.0.0.1",
+        port: int = 8080,
+        on_request: Callable[[dict], None] | None = None,
+        log_file: str | None = None,
+    ) -> None:
+        self.host = host
+        self.port = port
+        self._on_request = on_request
+        self._log_file = log_file
+        self._server: asyncio.AbstractServer | None = None
+
+    def _write_log(self, record: dict) -> None:
+        if not self._log_file:
+            return
+        import json, os
+        os.makedirs(os.path.dirname(self._log_file) or ".", exist_ok=True)
+        with open(self._log_file, "a") as f:
+            f.write(json.dumps(record) + "\n")
+
+    async def start(self) -> None:
+        loop = asyncio.get_running_loop()
+        factory = lambda: VulnerableHTTPProtocol(
+            on_request=self._on_request,
+            log_file=self._log_file,
+        )
+        self._server = await loop.create_server(factory, self.host, self.port)
+        log.info("Vulnerable server listening on %s:%s", self.host, self.port)
+
+    async def stop(self) -> None:
+        if self._server:
+            self._server.close()
+            await self._server.wait_closed()
+            log.info("Vulnerable server stopped")
+
+    @property
+    def url(self) -> str:
+        return f"http://{self.host}:{self.port}"
+
+
+def main() -> None:
+    import sys
+    args = sys.argv[1:]
+    port = 8080
+    log_file = None
+
+    for i, a in enumerate(args):
+        if a == "--log" and i + 1 < len(args):
+            log_file = args[i + 1]
+        elif a.isdigit():
+            port = int(a)
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    )
+
+    async def run() -> None:
+        server = VulnServer(host="127.0.0.1", port=port, log_file=log_file)
+        await server.start()
+        print(f"Vulnerable server listening on {server.url}")
+        if log_file:
+            print(f"  Logging requests to {log_file}")
+        try:
+            while True:
+                await asyncio.sleep(3600)
+        except KeyboardInterrupt:
+            pass
+        finally:
+            await server.stop()
+
+    asyncio.run(run())
+
 
 if __name__ == "__main__":
-    host = "0.0.0.0"
-    print(f"Lympha test server listening on http://{host}:{PORT}")
-    print(f"  Lympha sniffs port {PORT} (set via LYMPHA_HTTP_PORTS in lympha.conf)")
-    print(f"  Attack: python3 test/attack.py localhost {PORT}\n")
-
-    socketserver.TCPServer.allow_reuse_address = True
-    httpd = HTTPServer((host, PORT), Handler)
-    try:
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        print("\nServer stopped.")
+    main()

@@ -5,3 +5,4 @@ suricata/logs/eve.json
 .venv/
 venv/
 *.egg-info/
+models/*

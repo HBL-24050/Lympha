@@ -1,0 +1,56 @@
+# Lympha — Asymmetrical Multi-Tier Dual-Threshold Security Pipeline
+# =================================================================
+
+mode: test  # "test" → log-only, no iptables changes | "production" → enforce iptables blocks
+
+interfaces:
+  capture: "lo"          # packet capture / monitoring interface
+  control: "lo"          # interface for iptables rules
+
+# ── Tier 1: Line-Rate Frontline ──────────────────────────────────
+tier1:
+  enabled: true
+  xgboost:
+    model_path: "models/tier1/xgboost_model.json"   # XGBoost Booster serialized
+    feature_dim: 48                                  # number of handcrafted tabular features
+    threshold_instant_drop: 0.90                     # score ≥ this → instant drop via iptables
+    threshold_warning: 0.50                          # score ≥ this but < instant → route to Tier 2
+  mamba:
+    model_path: "models/tier1/mamba_state_dict.pt"   # Mamba SSM checkpoint
+    sequence_length: 512
+    threshold_instant_drop: 0.90
+    threshold_warning: 0.65
+  cooldown_seconds: 300          # how long until an iptables block rule is removed
+
+# ── Tier 2: Deep Context Parser ──────────────────────────────────
+tier2:
+  enabled: true
+  codebert:
+    model_name: "microsoft/codebert-base"             # HuggingFace model ID
+    cache_dir: "models/tier2"                         # local download path
+    device: "auto"                                     # "auto" → cuda if available else cpu
+    max_length: 256
+    threshold_instant_drop: 0.998                      # CodeBERT is untrained on attacks; only escalate at extreme confidence
+    threshold_warning: 0.90                            # below this → ignore, above → populate state cache
+
+  state_cache:
+    backend: "redis"                             # "redis" or "memory"
+    redis_url: "redis://localhost:6379/0"
+    accumulation_threshold: 10                   # sum of Warning_Weight across time window → trigger Tier 3
+    window_seconds: 3600                         # sliding time window in seconds
+    decay_half_life: 600                         # exponential half-life for weight decay
+
+# ── Tier 3: Generative Orchestrator (external LLM) ──────────────
+tier3:
+  enabled: false              # external LLM — disabled for local-only mode
+  api_base: "http://localhost:8000/v1"
+  api_key: ""
+  model: "Foundation-Sec-8B-Reasoning"
+  max_tokens: 2048
+  trigger_threshold: 10       # min accumulated weight to wake Tier 3
+
+# ── Logging ──────────────────────────────────────────────────────
+logging:
+  level: "DEBUG"               # DEBUG | INFO | WARNING | ERROR
+  file: "logs/lympa.log"
+  console: true
